@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Formulário de Dados</h1>
+
+    <br>
+    
+    <form method="POST" action="03_tiposdedados.php">
+    
+        
+        Nome: <input type="text" name="nome" ><br><br>
+
+        Sobrenome: <input type="text" name="sobrenome" ><br><br>
+
+        Idade: <input type="number" name="idade"><br><br>
+
+        Endereço: <input type="text" name="endereco"><br><br>
+
+        Telefone: <input type="tel" name="telefone" placeholder="(XX) XXXXX-XXXX"><br><br>
+
+        <hr>
+
+            Email: <input type="email" name="email"><br><br>
+            Senha: <input type="password" name="senha"><br><br>
+
+            <hr>
+    
+            Data de Nascimento: <input type="date" name="nascimento"><br><br>
+
+            <input type="datetime-local" name="data_hora"><br><br>
+
+            <input type="month" name="mes_ano"><br><br>
+
+            <input type="week" name="semana_ano"><br><br>
+
+    
+         Gênero: 
+            <input type="radio" name="genero" value="masculino"> Masculino
+            <input type="radio" name="genero" value="feminino"> Feminino
+            <input type="radio" name="genero" value="outro"> Outro<br><br>
+
+            Hobbies:
+            <input type="checkbox" name="hobbies[]" value="leitura"> Leitura
+            <input type="checkbox" name="hobbies[]" value="esportes"> Esportes
+            <input type="checkbox" name="hobbies[]" value="musica"> Música<br><br>
+            <input type="text" name="outro" placeholder="Outro hobby"><br><br>
+
+            <input type="file" name="arquivo"><br><br>
+
+            <input type="range" name="nivel" min="0" max="10"><br><br>
+
+            <input type="search" name="pesquisa" placeholder="Pesquisar..."><br><br>
+            
+            <input type="url" name="site" placeholder="https://example.com"><br><br>
+
+            <input type="hidden" name="id_usuario" value="12345"><br><br>
+
+            <input type="color" name="cor_favorita"><br><br>
+
+        <input type="submit" value="Enviar">
+
+        <button type="button"
+            onclick="window.location.href=window.location.pathname;">    
+            Limpar
+        </button>
+
+    </form>
+
+</body>
+</html>

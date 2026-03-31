@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Dados</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            margin: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+
+        fieldset {
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .radio, .checkbox {
+            width: auto;
+        }
+
+        .botoes {
+            text-align: center;
+        }
+
+        .botoes input, .botoes button {
+            width: 120px;
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Formulário de Dados</h1>
+
+    <form method="POST" action="03_tiposdedadosalter.php">
+
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+
+            Nome:
+            <input type="text" name="nome" required>
+
+            Sobrenome:
+            <input type="text" name="sobrenome">
+
+            Idade:
+            <input type="number" name="idade" min="0" max="120">
+
+            Endereço:
+            <input type="text" name="endereco">
+
+            Telefone:
+            <input type="tel" name="telefone" placeholder="(XX) XXXXX-XXXX">
+        </fieldset>
+
+        <fieldset>
+            <legend>Login</legend>
+
+            Email:
+            <input type="email" name="email">
+
+            Senha:
+            <input type="password" name="senha">
+        </fieldset>
+
+        <fieldset>
+            <legend>Datas</legend>
+
+            Data de Nascimento:
+            <input type="date" name="nascimento">
+
+            Data e Hora:
+            <input type="datetime-local" name="data_hora">
+
+            Mês:
+            <input type="month" name="mes_ano">
+
+            Semana:
+            <input type="week" name="semana_ano">
+        </fieldset>
+
+        <fieldset>
+            <legend>Outras Informações</legend>
+
+            Gênero:<br>
+            <input class="radio" type="radio" name="genero" value="masculino"> Masculino
+            <input class="radio" type="radio" name="genero" value="feminino"> Feminino
+            <input class="radio" type="radio" name="genero" value="outro"> Outro
+            <br><br>
+
+            Hobbies:<br>
+            <input class="checkbox" type="checkbox" name="hobbies[]" value="leitura"> Leitura
+            <input class="checkbox" type="checkbox" name="hobbies[]" value="esportes"> Esportes
+            <input class="checkbox" type="checkbox" name="hobbies[]" value="musica"> Música
+            <br><br>
+
+            Outro hobby:
+            <input type="text" name="outro">
+
+            Enviar arquivo:
+            <input type="file" name="arquivo">
+
+            Nível (0 a 10):
+            <input type="range" name="nivel" min="0" max="10">
+
+            Pesquisa:
+            <input type="search" name="pesquisa">
+
+            Site:
+            <input type="url" name="site" placeholder="https://example.com">
+
+            Cor favorita:
+            <input type="color" name="cor_favorita">
+
+            <input type="hidden" name="id_usuario" value="12345">
+
+            Observações:
+            <textarea name="observacoes"></textarea>
+
+            Estado:
+            <select name="estado">
+                <option value="sp">São Paulo</option>
+                <option value="rj">Rio de Janeiro</option>
+                <option value="mg">Minas Gerais</option>
+            </select>
+
+        </fieldset>
+
+        <div class="botoes">
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+            <button type="button" onclick="alert('Botão clicado!')">Botão</button>
+        </div>
+
+    </form>
+
+</body>
+</html>
