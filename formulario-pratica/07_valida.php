@@ -7,8 +7,7 @@
         $cpfOriginal = $_POST['cpf'];
 
         $cpfLimpo = preg_replace('/[^0-9]/', '', $cpfOriginal);
-        
-        $valido = false; // Controle de validação
+        $valido = false; 
 
         
         if (strlen($cpfLimpo) == 11 && !preg_match('/(\d)\1{10}/', $cpfLimpo)) 
@@ -24,7 +23,7 @@
         }
 
         echo "Nome: " . $nome . "<br>";
-        echo "CPF: " . Mascara($cpfOriginal) . "<br>";
+        echo "CPF: " . Mascara($cpfLimpo) . "<br>";
 
         if ($valido) 
         {
@@ -34,14 +33,13 @@
         {
             echo "<br><br>CPF inválido.";
         }
+
+        echo "<br><br><a href='07_valida.html'>Voltar</a>";
     }
 
     function Mascara($cpf) 
     {
-        return substr($cpf, 0, 3) . '.' . 
-            substr($cpf, 3, 3) . '.' . 
-            substr($cpf, 6, 3) . '-' . 
-            substr($cpf, 9, 2);
+        return vsprintf("%s%s%s.%s%s%s.%s%s%s-%s%s", str_split($cpf));
     }
 
 

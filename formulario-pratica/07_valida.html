@@ -12,10 +12,16 @@
         Nome: <input type="text" name="nome"><br>
         <br>
         
-        CPF: <input type="text" name="cpf"><br>
+        CPF: <input type="text" name="cpf" maxlength="14" oninput="this.value = this.value.replace(/\D/g, '').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2')"><br>
+
         <br>
         
         <input type="submit" value="Enviar">
+
+        <button type="button"
+            onclick="window.location.href=window.location.pathname;">    
+            Limpar
+        </button>
     </form>
 
 </body>
