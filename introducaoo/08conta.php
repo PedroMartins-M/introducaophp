@@ -64,6 +64,31 @@ public function saque(float $valor)
          return 'Tipo de conta:'  . $this->tipoDeConta . '  Agência: ' . $this->agencia . ' Conta: ' . $this->conta;
       }
 
+      public function getSaldo()
+      {
+         return $this->saldo;
+      }
+
+public function transferir($contaDestino, float $valor)
+{
+   if ($this->saque($valor))
+   {
+      $contaDestino->deposito($valor);
+
+      $this->incluiMovimentacao(
+         new ItemExtrato("Transferência enviada", $valor)
+      );
+
+      $contaDestino->incluiMovimentacao(
+         new ItemExtrato("Transferência recebida", $valor)
+      );
+
+      return "Transferência realizada com sucesso!";
+   }
+
+   return "Saldo insuficiente!";
+}
+
       abstract public function calculaSaldo();
    }
 
