@@ -7,12 +7,6 @@ $cURL = curl_init($url_ibge);
 curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
 $response_ibge = curl_exec($cURL);
 
-if (curl_errno($cURL)) {
-    // Trata erro de conexão com o IBGE, se necessário
-    $cidades = [];
-} else {
-    $cidades = json_decode($response_ibge);
-}
 curl_close($cURL);
 
 
@@ -30,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cep'])) {
         
         $cURL = curl_init($url_viacep);
         curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($cURL, CURLOPT_TIMEOUT, 10);
         $response_viacep = curl_exec($cURL);
         
         if (curl_errno($cURL)) {
@@ -44,10 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cep'])) {
             } else {
                 //Se não der erro, exibe os dados do endereço encontrado. 
                 echo "CEP: " . htmlspecialchars($cep) . "<br>";
-                echo "Logradouro: " . htmlspecialchars($endereco->logradouro ?? 'Não informado') . "<br>";
-                echo "Bairro: " . htmlspecialchars($endereco->bairro ?? 'Não informado') . "<br>";
-                echo "Cidade: " . htmlspecialchars($endereco->localidade ?? 'Não informado') . "<br>";
-                echo "Estado: " . htmlspecialchars($endereco->uf ?? 'Não informado') . "<br>";
+                echo "Logradouro: " . htmlspecialchars($endereco->logradouro) . "<br>";
+                echo "Bairro: " . htmlspecialchars($endereco->bairro ) . "<br>";
+                echo "Cidade: " . htmlspecialchars($endereco->localidade) . "<br>";
+                echo "Estado: " . htmlspecialchars($endereco->uf) . "<br>";
             }
         }
         curl_close($cURL);
